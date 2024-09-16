@@ -8,12 +8,7 @@ class String
   def palindrome?
     processed_content == processed_content.reverse
   end
-
- #Returns the letters in a string
-  def letters
-    chars.select { |c| c.match(/[a-z]/i) }.join
-  end
-    
+ 
   private
 
     # Returns content for palindrome testing.
