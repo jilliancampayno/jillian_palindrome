@@ -1,18 +1,27 @@
 # frozen_string_literal: true
 
-require_relative "jillian_palindrome/version"
+require "jillian_palindrome/version"
 
-class String
+module JillianPalindrome
     
  # Returns true for a palindrome, false otherwise.
   def palindrome?
     processed_content == processed_content.reverse
   end
+
  
   private
 
     # Returns content for palindrome testing.
     def processed_content
-      self.scan(/[a-z]/i).join.downcase
+      self.to_s.scan(/[a-z\d]/i).join.downcase
     end
+end
+
+class String
+    include JillianPalindrome
+end
+
+class Integer
+    include JillianPalindrome
 end
